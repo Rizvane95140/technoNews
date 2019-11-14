@@ -10,10 +10,17 @@
 
   </ion-searchbar>
 
+  <ion-item button *ngFor="let item of (results | async)" (click)="GoToNewsPageDetails(item)">
+    <ion-card>
+      <ion-img [src]="item.urlToImage"></ion-img>
+      <ion-card-content>
+        <ion-card-title>{{ item.title }}</ion-card-title>
+        <p>{{ item.description }}</p>
+      </ion-card-content>
+    </ion-card>
+</ion-item>
+  
+    
 
-  <ion-list>
-    <ion-item button *ngFor="let item of (results | async)" [routerLink]="['/', 'news', item.title]">
-        {{ item.title }}
-    </ion-item>
-  </ion-list>
+
 </ion-content>

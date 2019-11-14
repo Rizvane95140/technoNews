@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NewsService } from 'src/app/services/news.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -11,9 +12,9 @@ export class NewsPage implements OnInit {
 
   results: Observable<any>;
   searchTerm = '';
+  articleCourant: any;
 
-
-  constructor(private newsService: NewsService) { }
+  constructor(private newsService: NewsService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,5 +24,10 @@ export class NewsPage implements OnInit {
     // this.results.subscribe(res => {
 
     // });
+  }
+
+  GoToNewsPageDetails(item) {
+    this.newsService.articleCourant = item;
+    this.router.navigate(['/news-details']);
   }
 }

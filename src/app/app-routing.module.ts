@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: 'news', pathMatch: 'full' },
   { path: 'news', loadChildren: './pages/news/news.module#NewsPageModule' },
-  { path: 'news/:id', loadChildren: './pages/news-details/news-details.module#NewsDetailsPageModule' },
+  { path: 'news-details', loadChildren: './pages/news-details/news-details.module#NewsDetailsPageModule' },
 ];
 
 @NgModule({
